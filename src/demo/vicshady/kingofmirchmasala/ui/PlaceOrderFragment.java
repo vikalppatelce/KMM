@@ -34,5 +34,16 @@ public class PlaceOrderFragment extends SherlockFragment {
 		super.onSaveInstanceState(outState);
 		setUserVisibleHint(true);
 	}
-
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+	}
+	
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
+	}
 }

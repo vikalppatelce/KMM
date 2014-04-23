@@ -26,6 +26,12 @@ public class HomeFragment extends SherlockFragment {
 		return view;
 	}
 
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onActivityCreated(savedInstanceState);
+	}
+
 	/* (non-Javadoc)
 	 * @see android.support.v4.app.Fragment#onSaveInstanceState(android.os.Bundle)
 	 */
@@ -33,6 +39,12 @@ public class HomeFragment extends SherlockFragment {
 	public void onSaveInstanceState(Bundle outState) {
 		super.onSaveInstanceState(outState);
 		setUserVisibleHint(true);
+	}
+	
+	@Override
+	public void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
 	}
 
 }

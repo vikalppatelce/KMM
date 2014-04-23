@@ -49,6 +49,21 @@ public class MotherActivity extends SherlockFragmentActivity {
 				super.onPageSelected(position);
 				// Find the ViewPager Position
 				mActionBar.setSelectedNavigationItem(position);
+				switch(position)
+				{
+				case 0:
+					setMotherActionBarTitle(getString(R.string.str_home_fragment));
+					break;
+				case 1:
+					setMotherActionBarTitle(getString(R.string.str_place_order_fragment));
+					break;
+				case 2:
+					setMotherActionBarTitle(getString(R.string.str_new_arrival_fragment));
+					break;
+				case 3:
+					setMotherActionBarTitle(getString(R.string.str_about_fragment));
+					break;
+				}
 			}
 		};
 
@@ -79,20 +94,32 @@ public class MotherActivity extends SherlockFragmentActivity {
 		};
 
 		// Create first Tab
-		tab = mActionBar.newTab().setText("Tab1").setTabListener(tabListener);
+//		tab = mActionBar.newTab().setText("Tab1").setTabListener(tabListener);
+		tab = mActionBar.newTab().setIcon(R.drawable.tab_icon_home).setTabListener(tabListener);
 		mActionBar.addTab(tab);
+		setMotherActionBarTitle(getString(R.string.str_home_fragment));
 		
 		// Create second Tab
-		tab = mActionBar.newTab().setText("Tab2").setTabListener(tabListener);
+//		tab = mActionBar.newTab().setText("Tab2").setTabListener(tabListener);
+		tab = mActionBar.newTab().setIcon(R.drawable.tab_icon_place_order).setTabListener(tabListener);
 		mActionBar.addTab(tab);
+		setMotherActionBarTitle(getString(R.string.str_place_order_fragment));
 		
 		// Create third Tab
-		tab = mActionBar.newTab().setText("Tab3").setTabListener(tabListener);
+//		tab = mActionBar.newTab().setText("Tab3").setTabListener(tabListener);
+		tab = mActionBar.newTab().setIcon(R.drawable.tab_icon_new_arrival).setTabListener(tabListener);
 		mActionBar.addTab(tab);
+		setMotherActionBarTitle(getString(R.string.str_new_arrival_fragment));
 		
-		tab = mActionBar.newTab().setText("Tab4").setTabListener(tabListener);
+//		tab = mActionBar.newTab().setText("Tab4").setTabListener(tabListener);
+		tab = mActionBar.newTab().setIcon(R.drawable.tab_icon_about).setTabListener(tabListener);
 		mActionBar.addTab(tab);
+		setMotherActionBarTitle(getString(R.string.str_about_fragment));
 
 	}
-
+	
+	public void setMotherActionBarTitle(String s)
+	{
+		mActionBar.setTitle(s);
+	}
 }

@@ -8,6 +8,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:text="@string/Fragment2" />
+        android:text="@string/str_place_order_fragment" />
 
 </RelativeLayout>
