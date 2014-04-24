@@ -1,15 +1,20 @@
 package demo.vicshady.kingofmirchmasala.ui;
 
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.ActionBar.Tab;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 
 import demo.vicshady.kingofmirchmasala.R;
+import demo.vicshady.kingofmirchmasala.app.AppConstants;
 
 
 /**
@@ -22,6 +27,7 @@ public class MotherActivity extends SherlockFragmentActivity {
 	ActionBar mActionBar;
 	ViewPager mPager;
 	Tab tab;
+	Typeface stylefontActionBar;
 
 	/* (non-Javadoc)
 	 * @see android.support.v4.app.FragmentActivity#onCreate(android.os.Bundle)
@@ -31,6 +37,8 @@ public class MotherActivity extends SherlockFragmentActivity {
 		super.onCreate(savedInstanceState);
 		// Get the view from activity_main.xml
 		setContentView(R.layout.activity_mother);
+		
+		stylefontActionBar = Typeface.createFromAsset(getAssets(), AppConstants.fontStyle);
 		
 		// Activate Navigation Mode Tabs
 		mActionBar = getSupportActionBar();
@@ -95,7 +103,7 @@ public class MotherActivity extends SherlockFragmentActivity {
 
 		// Create first Tab
 //		tab = mActionBar.newTab().setText("Tab1").setTabListener(tabListener);
-		tab = mActionBar.newTab().setIcon(R.drawable.tab_icon_home).setTabListener(tabListener);
+		tab = mActionBar.newTab().setIcon(R.drawable.tab_icon_kmm_home).setTabListener(tabListener);
 		mActionBar.addTab(tab);
 		setMotherActionBarTitle(getString(R.string.str_home_fragment));
 		
@@ -112,7 +120,7 @@ public class MotherActivity extends SherlockFragmentActivity {
 		setMotherActionBarTitle(getString(R.string.str_new_arrival_fragment));
 		
 //		tab = mActionBar.newTab().setText("Tab4").setTabListener(tabListener);
-		tab = mActionBar.newTab().setIcon(R.drawable.tab_icon_about).setTabListener(tabListener);
+		tab = mActionBar.newTab().setIcon(R.drawable.tab_icon_kmm_about).setTabListener(tabListener);
 		mActionBar.addTab(tab);
 		setMotherActionBarTitle(getString(R.string.str_about_fragment));
 
@@ -120,6 +128,24 @@ public class MotherActivity extends SherlockFragmentActivity {
 	
 	public void setMotherActionBarTitle(String s)
 	{
-		mActionBar.setTitle(s);
+//		mActionBar.setTitle(s);
+		fontActionBar(s);
+	}
+	
+	public void fontActionBar(String str)
+	{
+		try {
+			int titleId;
+			if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+				titleId = getResources().getIdentifier("action_bar_title","id", "android");
+			} else {
+				titleId = R.id.abs__action_bar_title;
+			}
+			TextView yourTextView = (TextView) findViewById(titleId);
+			yourTextView.setText(str);
+			yourTextView.setTypeface(stylefontActionBar);
+		} catch (Exception e) {
+			Log.e("ActionBar Style", e.toString());
+		}
 	}
 }

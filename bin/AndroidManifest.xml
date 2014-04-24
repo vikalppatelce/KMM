@@ -12,6 +12,8 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
+        android:name="demo.vicshady.kingofmirchmasala.app.Kmm"
         android:theme="@style/Theme.Kmm" >
         <activity
             android:name="demo.vicshady.kingofmirchmasala.ui.MotherActivity"
@@ -22,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
     </application>
 
 </manifest>

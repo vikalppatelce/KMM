@@ -19,6 +19,11 @@
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_kmm</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_kmm</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Kmm</item>
+        <item name="android:titleTextStyle">@style/MyTheme.TitleTextStyle</item>
+    </style>
+    
+    <style name="MyTheme.TitleTextStyle" parent="@style/TextAppearance.Sherlock.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="ActionBar.Transparent.Kmm" parent="@style/Widget.Sherlock.Light.ActionBar">
